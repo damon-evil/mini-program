@@ -1,0 +1,11 @@
+<view class="container">
+	<block wx:for='{{classArray}}'>
+		<view class="class-active">
+			<label class="class-item" data-cname='{{item.cname}}' bindtap='classCourse'>
+				<image class='imageUi' src="../../../images/classes_hl.png" mode='widthFix'></image>
+				<text class='cnote'>{{item.cname}}</text>
+			</label>		
+			<button data-cname='{{item.cname}}' bindtap='deleteCourseList'>清空课表</button>
+		</view>
+	</block>
+</view>

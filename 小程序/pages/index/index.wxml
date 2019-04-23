@@ -1,0 +1,14 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <input class='inputUi' placeholder='请输入用户名' bindinput='uIdInput' autofocus></input>
+  <input class='inputUi' password='true' placeholder='请输入密码' bindinput='uPwdInput'></input>
+	<view class="action">
+		<button class='button primary' bindtap="loginCheck">登录</button>
+		<button class='button' bindtap="modalinput">注册</button>
+	</view>
+</view>
+<modal id="modal" hidden="{{hiddenmodalput}}" title="教师注册" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <input type='text' placeholder="工号：" bindinput='uIdInput' auto-focus/>
+    <input type='text' placeholder="用户名：" bindinput='uNameInput' />
+    <input type='text' password='true' bindinput='uPwdInput' placeholder="密码：" />
+</modal>

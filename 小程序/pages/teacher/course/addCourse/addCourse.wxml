@@ -1,0 +1,50 @@
+<view class="container">
+	<view class="courseName">
+		<text class="cnote">课程名:</text>
+		<input class="inputUi" placeholder="(未填写)" bindchange="courseName"/>
+	</view>
+	<view class="tName">
+		<text class="cnote">教师:</text>
+		<input class="inputUi" placeholder="(未填写)" bindchange="tName"/>
+	</view>
+	<view class="classRoom">
+		<text class="cnote">教室:</text>
+		<input class="inputUi" placeholder="(未填写)" bindchange="classRoom"/>
+	</view>
+	<view class="classRoom">
+		<text class="cnote">周数:</text>
+		<input class="inputUi" bindtap="showCheckboxWeek" placeholder="1-20周" />
+	</view>
+	<modal hidden="{{hiddenWeekCheckbox}}" bindcancel="cancel" bindconfirm="confirm">
+		<view wx:for="{{weekArray}}" 
+						wx:for-item="item" 
+						wx:key="item.index"  
+						bindtap="weekCheck" 
+						data-value="{{item.value}}" 
+						data-index="{{index}}"  
+						class="card {{item.selected ? 'card-selected' : ''}}" 
+						checked="{{item.selected}}" 
+						style="border-radius: 0;">
+						{{item.value}}
+		</view>
+		<button class="btn {{oddSelected ? 'btn-selected':''}}" bindtap="oddWeek">单周</button>
+		<button class="btn {{evenSelected ? 'btn-selected':''}}" bindtap="evenWeek">双周</button>
+		<button class="btn {{selectedAll ? 'btn-selected':''}}" bindtap="selectAll">全选</button>
+	</modal>
+	<view class="lesson">
+		<text class="cnote" style="position: relative;left: -60px;">节数:</text>
+		<picker mode="multiSelector" 
+						bindchange='lessonChange' 
+						bindcolumnchange="bindMultiPickerColumnChange"
+						value="{{multiIndex}}" 
+						range="{{lessonArray}}"
+						style="display: inline-block;position: relative;left: -60px;">
+		 {{lessonArray[0][multiIndex[0]]}},{{lessonArray[1][multiIndex[1]]}}		
+		</picker>
+	</view>
+	<view class="ps">
+		<text class="cnote">ps:</text>
+		<input class="inputUi" placeholder="(未填写)" bindchange="ps"/>
+	</view>
+	<button bindtap="addCourse">确认添加</button>
+</view>

@@ -1,0 +1,22 @@
+.imageUi{
+  height: 40rpx;
+  width: 40rpx;
+  vertical-align: middle
+}
+.cnote{
+ padding: 0 30rpx;
+ line-height: 40rpx;
+}
+.class-group{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.class-item{
+  display: flex;
+  flex-direction: row;
+	justify-content: ;
+	height: 40rpx;
+	margin:40rpx 40rpx;
+	line-height: 40rpx
+}

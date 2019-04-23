@@ -1,0 +1,39 @@
+.container{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+}
+.courseName{
+	font-size: 40rpx;
+}
+.imgUi{
+	height: 30rpx;
+	width: 30rpx;
+}
+.inputUi{
+	display: inline-block
+}
+.weekCheck{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.card{
+	display: inline-block;
+	height: 60rpx;
+	width: 25%;
+	background-color: #ADD8E6;
+	text-align: center;
+}
+.card-selected{
+	background-color: #FAB1A0;
+}
+.btn{
+	border: 1px solid #ADD8E6;
+}
+.btn-selected{
+	background-color: #FAB1A0;
+}

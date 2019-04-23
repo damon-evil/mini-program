@@ -1,0 +1,37 @@
+<!--pages/teacher/course/classcourse/classcourse.wxml-->
+<picker mode='selector' range="{{weekArray}}" bindchange="bindPickerChange">
+  <view class='pickerMsg'>
+    第{{weekArray[index]}}周
+    <image class='imageUi' src='../../../../images/drop_down.png'></image>
+  </view>
+</picker>
+<view class='courseTable'>
+  <view class='tr-h'>
+    <view class='th'>{{month}}\n月</view>
+	<view class='th'>周一</view>
+	<view class='th'>周二</view>
+	<view class='th'>周三</view>
+	<view class='th'>周四</view>
+	<view class='th'>周五</view>
+	<view class='th'>周六</view>
+	<view class='th'>周日</view>
+  </view>
+  <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="i">
+	  <view class="tr-d">
+		  <view class="td-f"><view>{{i}}</view></view>
+		  <block wx:for="{{currentCourseList[i-1]}}" wx:for-item="j">
+			  <view class="td" 
+							data-coursename="{{j.courseName}}" 
+							bindtap="editCourse" 
+							bindtouchstart='touchStart' 
+							bindtouchend='touchEnd'
+							bindlongpress='deleteCourse'>
+				<view class="courseNote">{{j.courseName}}</view>
+				<view class="courseNote">{{j.tName}}</view>
+				<view class="courseNote">{{j.classRoom}}</view>
+				<view class="courseNote">{{j.ps}}</view>
+			  </view>
+		  </block>
+	  </view>
+  </block>
+</view>

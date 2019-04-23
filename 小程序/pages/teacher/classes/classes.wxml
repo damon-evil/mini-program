@@ -1,0 +1,93 @@
+<!--pages/teacher/classes/classes.wxml-->
+<view class='hidden-group'></view>
+<view class='hidden-group'></view>
+<view class='class-group'>
+	<block wx:for='{{cArray}}'>
+		<label class="class-item" data-param='{{item.cname}}' bindtouchstart='touchStart' bindtouchend='touchEnd' bindtap='classShowModal'
+		 bindlongpress='showClassAction'>
+			<image class='imageUi' src='../../../images/classLogo.png' mode='widthFix'></image>
+			<text class='cnote'>{{item.cname}}</text>
+		</label>
+	</block>
+	<label class='class-item' bindtap='classRegisterModal'>
+		<image class='imageUi' src='../../../images/add.png'></image>
+		<text class='cnote'>创建新班级</text>
+	</label>
+	<button bindtap='showInfoModal'>发布通知</button>
+</view>
+<modal hidden="{{hiddenClassShow}}" title="{{cName}}" confirm-text="确认" cancel-text="取消" bindcancel="cancel"
+ bindconfirm="confirm">
+	<view class="line"></view>
+	<scroll-view style="height: 800rpx;" scroll-y="{{true}}" scroll-x="{{true}}">
+		<view class="student-group">
+			<block wx:for='{{sArray}}'>
+				<block wx:if='{{item.cName==cName}}'>
+					<label class="student-item" data-param='{{cName}}' data-sname='{{item.sName}}' data-sid='{{item.sId}}' bindtap='showStudentAction'>
+						<image class='imageUi' src='../../../images/student.png' mode='widthFix'></image>
+						<text class='snote'>{{item.sName}}</text>
+					</label>
+				</block>
+			</block>
+      <view class='line'></view>
+			<label class='class-item'>
+				<image class='imageUi' src='../../../images/add.png'></image>
+				<text class='cnote' bindtap='showAddStudent'>添加学生</text>
+			</label>
+			<view class='line'></view>
+			<button class='btn-item' bindtap='downloadT'>下载最新模版</button>
+			<button class='btn-item' bindtap='uploadS'>上传学生名单</button>
+		</view>
+	</scroll-view>
+</modal>
+<modal hidden="{{hiddenClassRegister}}" title="班级导入" confirm-text="确认" cancel-text="取消" bindcancel="cancel" bindconfirm="addClassName">
+	<input type='text' placeholder="班级名" bindinput='cNewNameInput' auto-focus />
+	<view class='hidden-group'></view>
+</modal>
+<modal hidden="{{hiddenClassUpdate}}" title="更改班级名" confirm-text="确认" cancel-text="取消" bindcancel="cancel" bindconfirm="updateClassName">
+	<input type='text' placeholder="请输入新的班级名" bindinput='cNewNameInput' auto-focus />
+</modal>
+<modal hidden="{{hiddenStudentUpdate}}" title="更改学生信息" confirm-text="确认" cancel-text="取消" bindcancel="studentUpdateCancel" bindconfirm="updateStudent">
+	<input type='text' placeholder="请输入新的姓名" bindinput='sNewNameInput' auto-focus />
+  <input type='text' password='true'  placeholder="请输入新的密码" bindinput='sNewPwdInput'  />
+  <input type='text' placeholder="请输入新的班级" bindinput='sNewClassInput'  />
+</modal>
+<modal hidden="{{hiddenAddStudent}}" title="添加学生" confirm-text="确认" cancel-text="取消" bindcancel="studentAddCancel" bindconfirm="addStudent">
+	<input type='text' placeholder="请输入学号" bindinput='sIdInput' auto-focus />
+	<input type='text' placeholder="请输入新的姓名" bindinput='sNewNameInput'  />
+  <input type='text' password='true' placeholder="请输入密码" bindinput='sNewPwdInput'  />
+</modal>
+<modal hidden="{{hiddenInform}}" title="发布通知" confirm-text="确认" cancel-text="取消" bindcancel="cancel" bindconfirm="sendInfoToDatabase">
+	<view class='hidden-group'></view>
+	<input type='text' placeholder="标题" bindinput='titleInput' bindblur='titleCheck' auto-focus />
+	<input type='text' placeholder="文本内容" bindinput='contentInput' />
+	<button class='btn-item' bindtap='chooseImage'>添加图片</button>
+	<button class='btn-item' bindtap='showTargetModalClass'>选择发布对象</button>
+</modal>
+<modal hidden="{{hiddenTargetModalClass}}" title="选择班级" confirm-text="确认" cancel-text="取消" bindcancel="cancel"
+ bindconfirm="sendInfoToStudent">
+	<view class="line"></view>
+	<label class="checkbox" wx:for="{{cArray}}">
+		<checkbox-group bindchange="checkboxClassChange" data-cname="{{item.cname}}" data-checked="{{item.checked}}" bindtouchstart='touchStart' bindtouchend='touchEnd' bindlongpress='showTargetStudentModal'>
+			<label>
+				<view class='hidden-group'></view>
+				<checkbox value="{{item.cname}}" checked="{{item.checked}}">
+					{{item.cname}} </checkbox>
+			</label>
+		</checkbox-group>
+	</label>
+</modal>
+<modal hidden="{{hiddenTargetStudentModal}}" title="选择学生" confirm-text="确认" cancel-text="返回" bindcancel="targetStudentModalCancel"
+ bindconfirm="BackToClass">
+	<view class="line"></view>
+	<scroll-view style="height: 800rpx;" scroll-y="{{true}}" scroll-x="{{true}}">
+        <label  class="student-group" wx:for='{{sArray}}'>
+          <label wx:if='{{item.cName==cName}}'>
+           <checkbox-group bindchange="checkboxStudentChange" data-sname="{{item.sName}}">  
+              <label>
+              <checkbox value="{{item.cname}}" checked="{{item.checked}}">{{item.sName}}</checkbox>
+              </label>
+            </checkbox-group>
+          </label>
+        </label>
+	</scroll-view>
+</modal>

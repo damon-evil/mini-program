@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/teacher/teacher",
+    "pages/teacher/classes/classes",
+    "pages/teacher/information/information",
+    "pages/teacher/score/score",
+    "pages/teacher/checkIn/checkIn",
+    "pages/teacher/me/me",
+    "pages/student/student",
+    "pages/teacher/upload/uploadS",
+    "pages/teacher/course/course",
+    "pages/teacher/course/classcourse/classcourse",
+    "pages/teacher/course/addCourse/addCourse",
+    "pages/teacher/course/editCourse/editCourse"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#8499B1",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#8499B1"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "color": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/teacher/information/information",
+        "text": "公告",
+        "iconPath": "images/information.png",
+        "selectedIconPath": "images/information_hl.png"
+      },
+      {
+        "pagePath": "pages/teacher/classes/classes",
+        "text": "班级",
+        "iconPath": "images/classes.png",
+        "selectedIconPath": "images/classes_hl.png"
+      },
+      {
+        "pagePath": "pages/teacher/score/score",
+        "text": "成绩",
+        "iconPath": "images/score.png",
+        "selectedIconPath": "images/score_hl.png"
+      },
+      {
+        "pagePath": "pages/teacher/course/course",
+        "text": "课表",
+        "iconPath": "images/courses.png",
+        "selectedIconPath": "images/courses_hl.png"
+      },
+      {
+        "pagePath": "pages/teacher/checkIn/checkIn",
+        "text": "我的",
+        "iconPath": "images/checkIn.png",
+        "selectedIconPath": "images/checkIn_hl.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,31 @@
+/* pages/teacher/classes/classes.wxss */
+.hidden-group{
+  height: 35rpx
+}
+.snote{
+ padding: 0 10rpx;
+ line-height: 40rpx
+}
+.student-group{
+	display: flex;
+	flex-wrap: wrap;
+}
+.student-item{
+  width: 33%;
+	height: 40rpx;
+	line-height: 40rpx;
+  margin: 20rpx 0;
+}
+.line{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}
+.btn-item{
+  background: #E0E3DA;
+  border-radius: 4px
+}
+.checkbox{
+  display: flex;
+  flex-direction: column;
+}

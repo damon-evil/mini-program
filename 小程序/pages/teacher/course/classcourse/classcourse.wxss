@@ -1,0 +1,60 @@
+/* pages/teacher/course/classcourse/classcourse.wxss */
+
+.courseTable{
+	height: 90vh;
+	border:1px solid #dadada;
+}
+.tr-h{
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #dfe6e9;
+}
+.th-f{
+	width: 9%;
+	text-align: center;
+	color: #fab1a0;
+}
+.th{
+	width: 13%;
+	text-align: center;
+}
+.tr-d{
+	height: 16vh;
+	display: flex;
+	justify-content: space-between;
+	background-color: lightblue;
+}
+.td-f{
+	width: 9%;
+	font-size: 15px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.td{
+	width: 13%;
+	text-align: center;
+	font-size: 15px;
+	display: flex;
+	flex-direction: column;
+}
+.td-f,.td{
+	border-bottom:1px solid #dadada;
+	border-right: 1px solid #dadada;
+}
+.courseNote{
+	
+}
+.pickerMsg{
+	height:50rpx;
+	width:100vw;
+	display: flex;
+	justify-content: center;
+}
+.imageUi{
+height: 50rpx;
+  width: 50rpx;
+}

@@ -1,0 +1,58 @@
+<!--pages/teacher/score/score.wxml-->
+<view class='search'>
+  <input type='text' class='input-item' bindinput='searchInput' placeholder='请输入查询内容'></input>
+  <image class='image-search' bindtap='search' src='../../../images/search.png'></image>
+</view>
+<view hidden='{{hiddenClassMarkView}}'>
+    <view class='class-group'>
+    <block wx:for='{{cArray}}'>
+      <label class="class-item" data-param='{{item.cname}}' bindtouchstart='touchStart' bindtouchend='touchEnd' bindtap='showClassMarkModal'
+      bindlongpress='showClassAction'>
+        <image class='imageUi' src='../../../images/classLogo.png' mode='widthFix'></image>
+        <text class='cnote' data-cname="{{item.cname}}" bindtap='showClassMark'>{{item.cname}}</text>
+      </label>
+    </block>
+    <label class='class-item' bindtap='addClassMarkModal'>
+      <image class='imageUi' src='../../../images/add.png'></image>
+      <text class='cnote' bindtap='showAddClassMarkModal'>添加班级成绩</text>
+    </label>
+  </view>
+  <modal hidden="{{hiddenClassMarkModal}}" title="班级成绩" no-cancel='{{true}}' confirm-text="返回" bindconfirm="backToScore">
+    <picker range='{{tArray}}' range-key="title" value='{{index}}'>
+      {{tArray[index].title}}
+      <image class='dropDownUi' src='../../../images/drop_down.png'></image>
+    </picker>
+    <view class='line'></view>
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">学号</view>
+        <view class="th">姓名</view>
+        <view class="th">成绩</view>
+      </view>
+      <block wx:for="{{mArray}}">
+        <view class="tr">
+          <view class="td">{{item.sName}}</view>
+          <view class="td">{{item.title}}</view>
+          <view class="td" data-sid='{{item.sId}}' data-title='{{item.title}}' bindtap='showUpdateMarkModal'>{{item.mark}}</view>
+        </view>
+      </block>
+    </view>
+  </modal>
+  <modal hidden="{{hiddenAddClassMarkModal}}" title="添加学生成绩" confirm-text="确认" cancel-text="取消" bindcancel="backToScore" bindconfirm="addClassMark">
+    <input placeholder='请输入考试名称' bindinput='titleInput'></input>
+    <button bindtap='downloadMarkTemplate'>下载成绩模版</button>
+    <button bindtap='uploadMarkTemplate'>上传成绩表格</button>
+  </modal>
+</view>
+<modal hidden='{{hiddenUpdateMarkModal}}' title="修改成绩" confirm-text="确认" cancel-text="取消" bindcancel="backToClassMark" bindconfirm="updateStudentMark">
+  <input placeholder='请输入新成绩'  bindinput="markInput" auto-focus></input>
+</modal>
+<view hidden='showSearchResult'>
+  <block wx:for="{{rArray}}">
+    <label>
+      <image class='imageUi' src='../../../images/stu.png'></image>
+      <text class='snote'>{{item.sName}}</text>
+      <image class='imageUi' src='../../../images/arrow_right.png'></image>
+    </label>
+  </block>
+</view>

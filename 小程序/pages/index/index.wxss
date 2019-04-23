@@ -1,0 +1,22 @@
+/* pages/index/index.wxss */
+.inputUi{
+  border-bottom:2px solid #dcdfe6;
+  height: 100rpx;
+	width: 60%;
+	padding: 0 40rpx;
+	margin: 0 auto 80rpx;
+}
+.action{
+	width: 100vw;
+	margin-top: 100rpx;
+}
+.button{
+	height: 100rpx;
+	width: 70%;
+	padding: 0 50rpx;
+	margin: 0 auto 50rpx;
+	background-color: #dfe6e9;
+}
+.button.primary{
+	background-color: #55efc4;
+}
